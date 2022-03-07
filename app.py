@@ -5,14 +5,17 @@ import re
 import joblib
 import numpy as np
 import pandas as pd
+import pickle
 
 
   
 
 import flask
 app = Flask(__name__)
-log_reg = joblib.load('model2_artifacts.pkl')
-count_vect = joblib.load('vectorizer.pkl')
+# log_reg = joblib.load('model2_artifacts.pkl')
+log_reg = pickle.load(open('model2_artifacts.pkl', 'rb'))
+# count_vect = joblib.load('vectorizer.pkl')
+count_vect = pickle.load(open('vectorizer.pkl', 'rb'))
 ps = PorterStemmer()
     
 ###################################################
@@ -63,7 +66,5 @@ def predict():
 
 
 if __name__ == '__main__':
-    #log_reg = joblib.load('quora_model.pkl')
-    #count_vect = joblib.load('quora_vectorizer.pkl')
     app.run(debug=True)
     #app.run(host='localhost', port=8081)
