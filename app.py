@@ -1,12 +1,12 @@
 from flask import Flask, jsonify, request
+from nltk.stem.porter import PorterStemmer
+from nltk.corpus import stopwords
+import re
+import joblib
 import numpy as np
 import pandas as pd
-#from sklearn.externals import joblib
-import joblib
-import re
-from sklearn.feature_extraction.text import CountVectorizer
-from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
+
+
   
 
 import flask
